@@ -1,7 +1,6 @@
 package org.realityforge.gwt.websockets.client.event;
 
 import com.google.gwt.event.shared.EventHandler;
-import javax.annotation.Nonnull;
 import org.realityforge.gwt.websockets.client.WebSocket;
 
 /**
@@ -13,7 +12,7 @@ public class ErrorEvent
   public interface Handler
     extends EventHandler
   {
-    void onErrorEvent( @Nonnull ErrorEvent event );
+    void onErrorEvent( ErrorEvent event );
   }
 
   private static final Type<Handler> TYPE = new Type<Handler>();
@@ -23,7 +22,7 @@ public class ErrorEvent
     return TYPE;
   }
 
-  public ErrorEvent( @Nonnull final WebSocket webSocket )
+  public ErrorEvent( final WebSocket webSocket )
   {
     super( webSocket );
   }
@@ -35,7 +34,7 @@ public class ErrorEvent
   }
 
   @Override
-  protected void dispatch( @Nonnull final Handler handler )
+  protected void dispatch( final Handler handler )
   {
     handler.onErrorEvent( this );
   }

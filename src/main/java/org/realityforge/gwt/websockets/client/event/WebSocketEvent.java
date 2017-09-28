@@ -2,7 +2,7 @@ package org.realityforge.gwt.websockets.client.event;
 
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
-import javax.annotation.Nonnull;
+
 import org.realityforge.gwt.websockets.client.WebSocket;
 
 /**
@@ -13,12 +13,12 @@ public abstract class WebSocketEvent<H extends EventHandler>
 {
   private final WebSocket _webSocket;
 
-  protected WebSocketEvent( @Nonnull final WebSocket webSocket )
+  protected WebSocketEvent( final WebSocket webSocket )
   {
     _webSocket = webSocket;
   }
 
-  @Nonnull
+  
   public final WebSocket getWebSocket()
   {
     return _webSocket;

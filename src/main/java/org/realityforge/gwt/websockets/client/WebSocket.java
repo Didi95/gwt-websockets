@@ -3,8 +3,8 @@ package org.realityforge.gwt.websockets.client;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.typedarrays.shared.ArrayBuffer;
 import com.google.gwt.typedarrays.shared.ArrayBufferView;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+
+
 
 /**
  * The WebSocket class.
@@ -37,7 +37,7 @@ public abstract class WebSocket
 
   private static SupportDetector g_supportDetector;
   private static Factory g_factory;
-  @Nonnull
+  
   private WebSocketListener _listener = NullWebSocketListener.LISTENER;
 
   /**
@@ -73,7 +73,7 @@ public abstract class WebSocket
    *
    * @param factory the factory to register.
    */
-  public static void register( @Nonnull final Factory factory )
+  public static void register( final Factory factory )
   {
     g_factory = factory;
   }
@@ -84,7 +84,7 @@ public abstract class WebSocket
    * @param factory the factory to deregister.
    * @return true if able to deregister, false otherwise.
    */
-  public static boolean deregister( @Nonnull final Factory factory )
+  public static boolean deregister( final Factory factory )
   {
     if ( g_factory != factory )
     {
@@ -103,7 +103,7 @@ public abstract class WebSocket
    * @param url the url to open.
    * @throws IllegalStateException if the WebSocket is already open.
    */
-  public abstract void connect( @Nonnull String url, @Nonnull String... protocols )
+  public abstract void connect( String url, String... protocols )
     throws IllegalStateException;
 
   /**
@@ -130,7 +130,7 @@ public abstract class WebSocket
    *
    * @throws IllegalStateException if the WebSocket is not open.
    */
-  public abstract void close( short code, @Nullable String reason )
+  public abstract void close( short code, String reason )
     throws IllegalStateException;
 
   /**
@@ -144,7 +144,7 @@ public abstract class WebSocket
    * @param data the data to send.
    * @throws IllegalStateException if the WebSocket is not open.
    */
-  public abstract void send( @Nonnull String data )
+  public abstract void send( String data )
     throws IllegalStateException;
 
   /**
@@ -153,7 +153,7 @@ public abstract class WebSocket
    * @param data the data to send.
    * @throws IllegalStateException if the WebSocket is not open.
    */
-  public abstract void send( @Nonnull ArrayBuffer data )
+  public abstract void send( ArrayBuffer data )
     throws IllegalStateException;
 
   /**
@@ -162,7 +162,7 @@ public abstract class WebSocket
    * @param data the data to send.
    * @throws IllegalStateException if the WebSocket is not open.
    */
-  public abstract void send( @Nonnull ArrayBufferView data )
+  public abstract void send( ArrayBufferView data )
     throws IllegalStateException;
 
   /**
@@ -215,7 +215,7 @@ public abstract class WebSocket
    * @param binaryType the type of the binary messages that the WebSocket will receive.
    * @throws IllegalStateException if the WebSocket is not open.
    */
-  public abstract void setBinaryType( @Nonnull BinaryType binaryType )
+  public abstract void setBinaryType( BinaryType binaryType )
     throws IllegalStateException;
 
   /**
@@ -232,7 +232,7 @@ public abstract class WebSocket
    *
    * @return the listener associated with the WebSocket.
    */
-  @Nonnull
+  
   public final WebSocketListener getListener()
   {
     return _listener;
@@ -243,7 +243,7 @@ public abstract class WebSocket
    *
    * @param listener the listener to receive messages from the WebSocket.
    */
-  public final void setListener( @Nullable final WebSocketListener listener )
+  public final void setListener( final WebSocketListener listener )
   {
     _listener = null == listener ? NullWebSocketListener.LISTENER : listener;
   }
@@ -261,7 +261,7 @@ public abstract class WebSocket
    */
   protected final void onClose( final boolean wasClean,
                                 final int code,
-                                @Nullable final String reason )
+                                final String reason )
   {
     getListener().onClose( this, wasClean, code, reason );
   }

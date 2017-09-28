@@ -1,8 +1,8 @@
 package org.realityforge.gwt.websockets.client;
 
 import com.google.gwt.typedarrays.shared.ArrayBuffer;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+
+
 
 /**
  * Adapter listener to make sub-classing easier.
@@ -14,7 +14,7 @@ public abstract class WebSocketListenerAdapter
    * {@inheritDoc}
    */
   @Override
-  public void onOpen( @Nonnull final WebSocket webSocket )
+  public void onOpen( final WebSocket webSocket )
   {
   }
 
@@ -22,10 +22,10 @@ public abstract class WebSocketListenerAdapter
    * {@inheritDoc}
    */
   @Override
-  public void onClose( @Nonnull final WebSocket webSocket,
+  public void onClose( final WebSocket webSocket,
                        final boolean wasClean,
                        final int code,
-                       @Nullable final String reason )
+                       final String reason )
   {
   }
 
@@ -33,7 +33,7 @@ public abstract class WebSocketListenerAdapter
    * {@inheritDoc}
    */
   @Override
-  public void onMessage( @Nonnull final WebSocket webSocket, @Nonnull final String data )
+  public void onMessage( final WebSocket webSocket, final String data )
   {
   }
 
@@ -41,7 +41,7 @@ public abstract class WebSocketListenerAdapter
    * {@inheritDoc}
    */
   @Override
-  public void onMessage( @Nonnull final WebSocket webSocket, @Nonnull final ArrayBuffer data )
+  public void onMessage( final WebSocket webSocket, final ArrayBuffer data )
   {
   }
 
@@ -49,7 +49,7 @@ public abstract class WebSocketListenerAdapter
    * {@inheritDoc}
    */
   @Override
-  public void onError( @Nonnull final WebSocket webSocket )
+  public void onError( final WebSocket webSocket )
   {
   }
 }

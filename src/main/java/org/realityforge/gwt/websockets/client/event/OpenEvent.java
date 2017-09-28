@@ -2,7 +2,7 @@ package org.realityforge.gwt.websockets.client.event;
 
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
-import javax.annotation.Nonnull;
+
 import org.realityforge.gwt.websockets.client.WebSocket;
 
 /**
@@ -14,7 +14,7 @@ public class OpenEvent
   public interface Handler
     extends EventHandler
   {
-    void onOpenEvent( @Nonnull OpenEvent event );
+    void onOpenEvent( OpenEvent event );
   }
 
   private static final GwtEvent.Type<Handler> TYPE = new Type<Handler>();
@@ -24,7 +24,7 @@ public class OpenEvent
     return TYPE;
   }
 
-  public OpenEvent( @Nonnull final WebSocket webSocket )
+  public OpenEvent( final WebSocket webSocket )
   {
     super( webSocket );
   }
@@ -36,7 +36,7 @@ public class OpenEvent
   }
 
   @Override
-  protected void dispatch( @Nonnull final Handler handler )
+  protected void dispatch( final Handler handler )
   {
     handler.onOpenEvent( this );
   }

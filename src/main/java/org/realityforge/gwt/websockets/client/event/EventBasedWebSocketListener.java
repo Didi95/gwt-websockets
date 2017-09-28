@@ -4,8 +4,8 @@ import com.google.gwt.typedarrays.shared.ArrayBuffer;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 import com.google.web.bindery.event.shared.SimpleEventBus;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+
+
 import org.realityforge.gwt.websockets.client.WebSocket;
 import org.realityforge.gwt.websockets.client.WebSocketListener;
 
@@ -15,7 +15,7 @@ import org.realityforge.gwt.websockets.client.WebSocketListener;
 public class EventBasedWebSocketListener
   implements WebSocketListener
 {
-  @Nonnull
+  
   private final EventBus _eventBus;
 
   /**
@@ -31,7 +31,7 @@ public class EventBasedWebSocketListener
    *
    * @param eventBus the event bus.
    */
-  public EventBasedWebSocketListener( @Nonnull final EventBus eventBus )
+  public EventBasedWebSocketListener( final EventBus eventBus )
   {
     _eventBus = eventBus;
   }
@@ -42,8 +42,8 @@ public class EventBasedWebSocketListener
    * @param handler the event handler.
    * @return the HandlerRegistration that manages the listener.
    */
-  @Nonnull
-  public final HandlerRegistration addOpenHandler( @Nonnull final OpenEvent.Handler handler )
+  
+  public final HandlerRegistration addOpenHandler( final OpenEvent.Handler handler )
   {
     return _eventBus.addHandler( OpenEvent.getType(), handler );
   }
@@ -54,8 +54,8 @@ public class EventBasedWebSocketListener
    * @param handler the event handler.
    * @return the HandlerRegistration that manages the listener.
    */
-  @Nonnull
-  public final HandlerRegistration addCloseHandler( @Nonnull final CloseEvent.Handler handler )
+  
+  public final HandlerRegistration addCloseHandler( final CloseEvent.Handler handler )
   {
     return _eventBus.addHandler( CloseEvent.getType(), handler );
   }
@@ -66,8 +66,8 @@ public class EventBasedWebSocketListener
    * @param handler the event handler.
    * @return the HandlerRegistration that manages the listener.
    */
-  @Nonnull
-  public final HandlerRegistration addMessageHandler( @Nonnull final MessageEvent.Handler handler )
+  
+  public final HandlerRegistration addMessageHandler( final MessageEvent.Handler handler )
   {
     return _eventBus.addHandler( MessageEvent.getType(), handler );
   }
@@ -78,8 +78,8 @@ public class EventBasedWebSocketListener
    * @param handler the event handler.
    * @return the HandlerRegistration that manages the listener.
    */
-  @Nonnull
-  public final HandlerRegistration addErrorHandler( @Nonnull final ErrorEvent.Handler handler )
+  
+  public final HandlerRegistration addErrorHandler( final ErrorEvent.Handler handler )
   {
     return _eventBus.addHandler( ErrorEvent.getType(), handler );
   }
@@ -88,7 +88,7 @@ public class EventBasedWebSocketListener
    * {@inheritDoc}
    */
   @Override
-  public final void onOpen( @Nonnull final WebSocket webSocket )
+  public final void onOpen( final WebSocket webSocket )
   {
     _eventBus.fireEventFromSource( new OpenEvent( webSocket ), webSocket );
   }
@@ -97,10 +97,10 @@ public class EventBasedWebSocketListener
    * {@inheritDoc}
    */
   @Override
-  public final void onClose( @Nonnull final WebSocket webSocket,
+  public final void onClose( final WebSocket webSocket,
                              final boolean wasClean,
                              final int code,
-                             @Nullable final String reason )
+                             final String reason )
   {
     _eventBus.fireEventFromSource( new CloseEvent( webSocket, wasClean, code, reason ), webSocket );
   }
@@ -109,7 +109,7 @@ public class EventBasedWebSocketListener
    * {@inheritDoc}
    */
   @Override
-  public final void onMessage( @Nonnull final WebSocket webSocket, @Nonnull final String data )
+  public final void onMessage( final WebSocket webSocket, final String data )
   {
     _eventBus.fireEventFromSource( new MessageEvent( webSocket, data ), webSocket );
   }
@@ -118,7 +118,7 @@ public class EventBasedWebSocketListener
    * {@inheritDoc}
    */
   @Override
-  public final void onMessage( @Nonnull final WebSocket webSocket, @Nonnull final ArrayBuffer data )
+  public final void onMessage( final WebSocket webSocket, final ArrayBuffer data )
   {
     _eventBus.fireEventFromSource( new MessageEvent( webSocket, data ), webSocket );
   }
@@ -127,7 +127,7 @@ public class EventBasedWebSocketListener
    * {@inheritDoc}
    */
   @Override
-  public final void onError( @Nonnull final WebSocket webSocket )
+  public final void onError( final WebSocket webSocket )
   {
     _eventBus.fireEventFromSource( new ErrorEvent( webSocket ), webSocket );
   }

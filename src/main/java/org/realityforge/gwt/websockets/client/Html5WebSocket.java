@@ -3,8 +3,8 @@ package org.realityforge.gwt.websockets.client;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.typedarrays.shared.ArrayBuffer;
 import com.google.gwt.typedarrays.shared.ArrayBufferView;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+
+
 
 /**
  * The browser-based WebSocket implementation.
@@ -44,7 +44,7 @@ final class Html5WebSocket
    * {@inheritDoc}
    */
   @Override
-  public void close( final short code, @Nullable final String reason )
+  public void close( final short code, final String reason )
     throws IllegalStateException
   {
     checkConnected();
@@ -61,7 +61,7 @@ final class Html5WebSocket
    * {@inheritDoc}
    */
   @Override
-  public void connect( @Nonnull final String server, @Nonnull final String... protocols )
+  public void connect( final String server, final String... protocols )
     throws IllegalStateException
   {
     if ( null != _webSocket )
@@ -130,7 +130,7 @@ final class Html5WebSocket
    * {@inheritDoc}
    */
   @Override
-  public final void send( @Nonnull String data )
+  public final void send( String data )
     throws IllegalStateException
   {
     checkConnected();
@@ -141,7 +141,7 @@ final class Html5WebSocket
    * {@inheritDoc}
    */
   @Override
-  public void send( @Nonnull final ArrayBufferView data )
+  public void send( final ArrayBufferView data )
     throws IllegalStateException
   {
     checkConnected();
@@ -152,7 +152,7 @@ final class Html5WebSocket
    * {@inheritDoc}
    */
   @Override
-  public void send( @Nonnull final ArrayBuffer data )
+  public void send( final ArrayBuffer data )
     throws IllegalStateException
   {
     checkConnected();
@@ -179,7 +179,7 @@ final class Html5WebSocket
    * {@inheritDoc}
    */
   @Override
-  public void setBinaryType( @Nonnull final BinaryType binaryType )
+  public void setBinaryType( final BinaryType binaryType )
     throws IllegalStateException
   {
     checkConnected();

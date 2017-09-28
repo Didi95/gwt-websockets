@@ -1,8 +1,8 @@
 package org.realityforge.gwt.websockets.client.event;
 
 import com.google.gwt.event.shared.EventHandler;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+
+
 import org.realityforge.gwt.websockets.client.WebSocket;
 
 /**
@@ -26,7 +26,7 @@ public class CloseEvent
   public interface Handler
     extends EventHandler
   {
-    void onCloseEvent( @Nonnull CloseEvent event );
+    void onCloseEvent( CloseEvent event );
   }
 
   private static final Type<Handler> TYPE = new Type<Handler>();
@@ -40,10 +40,10 @@ public class CloseEvent
   private final int _code;
   private final String _reason;
 
-  public CloseEvent( @Nonnull final WebSocket webSocket,
+  public CloseEvent( final WebSocket webSocket,
                      final boolean wasClean,
                      final int code,
-                     @Nullable final String reason )
+                     final String reason )
   {
     super( webSocket );
     _wasClean = wasClean;
@@ -61,7 +61,7 @@ public class CloseEvent
     return _code;
   }
 
-  @Nullable
+ 
   public String getReason()
   {
     return _reason;
@@ -74,7 +74,7 @@ public class CloseEvent
   }
 
   @Override
-  protected void dispatch( @Nonnull final Handler handler )
+  protected void dispatch( final Handler handler )
   {
     handler.onCloseEvent( this );
   }

@@ -1,8 +1,8 @@
 package org.realityforge.gwt.websockets.client;
 
 import com.google.gwt.typedarrays.shared.ArrayBuffer;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+
+
 
 /**
  * Interface for receiving WebSocket events.
@@ -12,25 +12,25 @@ public interface WebSocketListener
   /**
    * Fire a Connected event.
    */
-  void onOpen( @Nonnull WebSocket webSocket );
+  void onOpen( WebSocket webSocket );
 
   /**
    * Fire a Close event.
    */
-  void onClose( @Nonnull WebSocket webSocket, boolean wasClean, int code, @Nullable String reason );
+  void onClose( WebSocket webSocket, boolean wasClean, int code, String reason );
 
   /**
    * Fire a Message event.
    */
-  void onMessage( @Nonnull WebSocket webSocket, @Nonnull String data );
+  void onMessage( WebSocket webSocket, String data );
 
   /**
    * Fire a Message event.
    */
-  void onMessage( @Nonnull WebSocket webSocket, @Nonnull ArrayBuffer data );
+  void onMessage( WebSocket webSocket, ArrayBuffer data );
 
   /**
    * Fire an Error event.
    */
-  void onError( @Nonnull WebSocket webSocket );
+  void onError( WebSocket webSocket );
 }

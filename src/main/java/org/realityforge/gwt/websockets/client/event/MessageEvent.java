@@ -2,7 +2,7 @@ package org.realityforge.gwt.websockets.client.event;
 
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.typedarrays.shared.ArrayBuffer;
-import javax.annotation.Nonnull;
+
 import org.realityforge.gwt.websockets.client.WebSocket;
 
 public class MessageEvent
@@ -11,7 +11,7 @@ public class MessageEvent
   public interface Handler
     extends EventHandler
   {
-    void onMessageEvent( @Nonnull MessageEvent event );
+    void onMessageEvent( MessageEvent event );
   }
 
   public enum DataType
@@ -30,7 +30,7 @@ public class MessageEvent
   private final String _data;
   private final ArrayBuffer _arrayBuffer;
 
-  public MessageEvent( @Nonnull final WebSocket webSocket, @Nonnull final String data )
+  public MessageEvent( final WebSocket webSocket, final String data )
   {
     super( webSocket );
     _dataType = DataType.TEXT;
@@ -38,7 +38,7 @@ public class MessageEvent
     _arrayBuffer = null;
   }
 
-  public MessageEvent( @Nonnull final WebSocket webSocket, @Nonnull final ArrayBuffer arrayBuffer )
+  public MessageEvent( final WebSocket webSocket, final ArrayBuffer arrayBuffer )
   {
     super( webSocket );
     _dataType = DataType.ARRAY_BUFFER;
@@ -54,14 +54,14 @@ public class MessageEvent
   /**
    * @deprecated Use getTextData() instead.
    */
-  @Nonnull
+  
   @Deprecated
   public String getData()
   {
     return getTextData();
   }
 
-  @Nonnull
+  
   public String getTextData()
   {
     if( DataType.TEXT != _dataType )
@@ -71,7 +71,7 @@ public class MessageEvent
     return _data;
   }
 
-  @Nonnull
+  
   public ArrayBuffer getArrayBufferData()
   {
     if( DataType.ARRAY_BUFFER != _dataType )
@@ -88,7 +88,7 @@ public class MessageEvent
   }
 
   @Override
-  protected void dispatch( @Nonnull final Handler handler )
+  protected void dispatch( final Handler handler )
   {
     handler.onMessageEvent( this );
   }
